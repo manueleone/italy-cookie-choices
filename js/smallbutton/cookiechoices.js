@@ -34,7 +34,7 @@ function allowCookie() {
         if (res) {
             // console.log(jsArr[i]);
 
-            var regexURL = /<script.*?src="(.*?)"/;
+            var regexURL = new RegExp('<script.*?src="(.*?)"');
 
             var URL = regexURL.test(jsArr[i]);
 
@@ -43,7 +43,7 @@ function allowCookie() {
                 loadJS(URL[1]);
             }
 
-            var regex = /<script\b[^>]*>([\s\S]*?)<\/script>/gm;
+            var regex = new RegExp('<script\\b[^>]*>([\\s\\S]*?)<\/script>', 'gm');
 
             var code = regex.exec(jsArr[i]);
 
